@@ -16,17 +16,17 @@ export const Alert = ({ data }: { data: any }) => {
     };
 
     const styles = {
-        info: 'bg-blue-50 dark:bg-blue-950 border-blue-200 dark:border-blue-800 text-blue-900 dark:text-blue-100',
-        warning: 'bg-yellow-50 dark:bg-yellow-950 border-yellow-200 dark:border-yellow-800 text-yellow-900 dark:text-yellow-100',
-        success: 'bg-green-50 dark:bg-green-950 border-green-200 dark:border-green-800 text-green-900 dark:text-green-100',
-        tip: 'bg-purple-50 dark:bg-purple-950 border-purple-200 dark:border-purple-800 text-purple-900 dark:text-purple-100',
+        info: 'bg-blue-50/50 dark:bg-blue-950/20 border-blue-200/50 dark:border-blue-800/30',
+        warning: 'bg-yellow-50/50 dark:bg-yellow-950/20 border-yellow-200/50 dark:border-yellow-800/30',
+        success: 'bg-green-50/50 dark:bg-green-950/20 border-green-200/50 dark:border-green-800/30',
+        tip: 'bg-purple-50/50 dark:bg-purple-950/20 border-purple-200/50 dark:border-purple-800/30',
     };
 
     const iconStyles = {
-        info: 'text-blue-500 dark:text-blue-400',
-        warning: 'text-yellow-500 dark:text-yellow-400',
-        success: 'text-green-500 dark:text-green-400',
-        tip: 'text-purple-500 dark:text-purple-400',
+        info: 'text-blue-600 dark:text-blue-400',
+        warning: 'text-yellow-600 dark:text-yellow-400',
+        success: 'text-green-600 dark:text-green-400',
+        tip: 'text-purple-600 dark:text-purple-400',
     };
 
     const Icon = icons[data.type as keyof typeof icons] || Info;
@@ -35,20 +35,18 @@ export const Alert = ({ data }: { data: any }) => {
 
     return (
         <Section background={data.background!} data-tina-field={tinaField(data)}>
-            <div className="w-full max-w-4xl mx-auto">
-                <div className={`flex gap-3 p-4 rounded-lg border ${alertStyle}`}>
-                    <div className="flex-shrink-0 mt-0.5">
-                        <Icon className={`w-5 h-5 ${iconStyle}`} />
-                    </div>
-                    <div className="flex-1">
-                        {data.title && (
-                            <h4 className="font-semibold mb-1" data-tina-field={tinaField(data, 'title')}>
-                                {data.title}
-                            </h4>
-                        )}
-                        <div className="prose prose-sm dark:prose-invert max-w-none [&>*:first-child]:mt-0 [&>*:last-child]:mb-0" data-tina-field={tinaField(data, 'content')}>
-                            <TinaMarkdown content={data.content} />
-                        </div>
+            <div className={`flex gap-3 p-4 rounded-lg border ${alertStyle}`}>
+                <div className="flex-shrink-0 mt-0.5">
+                    <Icon className={`w-4 h-4 ${iconStyle}`} />
+                </div>
+                <div className="flex-1">
+                    {data.title && (
+                        <h4 className="font-semibold text-sm mb-1 text-foreground" data-tina-field={tinaField(data, 'title')}>
+                            {data.title}
+                        </h4>
+                    )}
+                    <div className="prose prose-sm dark:prose-invert max-w-none [&>*:first-child]:mt-0 [&>*:last-child]:mb-0 [&>p]:text-neutral-700 dark:[&>p]:text-neutral-300" data-tina-field={tinaField(data, 'content')}>
+                        <TinaMarkdown content={data.content} />
                     </div>
                 </div>
             </div>

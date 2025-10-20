@@ -42,63 +42,55 @@ const transitionVariants = {
 };
 
 export const Hero = ({ data }: { data: PageBlocksHero }) => {
-  // Extract the background style logic into a more readable format
-  let gradientStyle: React.CSSProperties | undefined = undefined;
-  if (data.background) {
-    const colorName = data.background
-      .replace(/\/\d{1,2}$/, '')
-      .split('-')
-      .slice(1)
-      .join('-');
-    const opacity = data.background.match(/\/(\d{1,3})$/)?.[1] || '100';
-
-    gradientStyle = {
-      '--tw-gradient-to': `color-mix(in oklab, var(--color-${colorName}) ${opacity}%, transparent)`,
-    } as React.CSSProperties;
-  }
-
   return (
     <Section background={data.background!}>
-      <div className='text-center sm:mx-auto lg:mr-auto lg:mt-0'>
+      <div className='mx-auto max-w-3xl'>
         {data.headline && (
-          <div data-tina-field={tinaField(data, 'headline')}>
-            <TextEffect preset='fade-in-blur' speedSegment={0.3} as='h1' className='mt-8 text-balance text-6xl md:text-7xl xl:text-[5.25rem]'>
-              {data.headline!}
-            </TextEffect>
-          </div>
+          <h1 
+            className='text-4xl md:text-5xl font-bold mb-4 text-foreground'
+            data-tina-field={tinaField(data, 'headline')}
+          >
+            {data.headline!}
+          </h1>
         )}
         {data.tagline && (
-          <div data-tina-field={tinaField(data, 'tagline')}>
-            <TextEffect per='line' preset='fade-in-blur' speedSegment={0.3} delay={0.5} as='p' className='mx-auto mt-8 max-w-2xl text-balance text-lg'>
-              {data.tagline!}
-            </TextEffect>
-          </div>
+          <p 
+            className='text-lg md:text-xl text-neutral-600 dark:text-neutral-400 mb-8'
+            data-tina-field={tinaField(data, 'tagline')}
+          >
+            {data.tagline!}
+          </p>
         )}
 
-        <AnimatedGroup variants={transitionVariants} className='mt-12 flex flex-col items-center justify-center gap-2 md:flex-row'>
-          {data.actions &&
-            data.actions.map((action) => (
-              <div key={action!.label} data-tina-field={tinaField(action)} className='bg-foreground/10 rounded-[calc(var(--radius-xl)+0.125rem)] border p-0.5'>
-                <Button asChild size='lg' variant={action!.type === 'link' ? 'ghost' : 'default'} className='rounded-xl px-5 text-base'>
-                  <Link href={action!.link!}>
-                    {action?.icon && <Icon data={action?.icon} />}
-                    <span className='text-nowrap'>{action!.label}</span>
-                  </Link>
-                </Button>
-              </div>
+        {data.actions && data.actions.length > 0 && (
+          <div className='flex flex-wrap gap-4'>
+            {data.actions.map((action) => (
+              <Link
+                key={action!.label}
+                href={action!.link!}
+                data-tina-field={tinaField(action)}
+                className={`
+                  inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors no-underline
+                  ${action!.type === 'button' 
+                    ? 'bg-foreground text-background hover:bg-neutral-800 dark:hover:bg-neutral-200' 
+                    : 'text-foreground hover:text-neutral-600 dark:hover:text-neutral-400'
+                  }
+                `}
+              >
+                {action?.icon && <Icon data={action?.icon} />}
+                <span>{action!.label}</span>
+              </Link>
             ))}
-        </AnimatedGroup>
+          </div>
+        )}
       </div>
 
       {data.image && (
-        <AnimatedGroup variants={transitionVariants}>
-          <div className='relative -mr-56 mt-8 overflow-hidden px-2 sm:mr-0 sm:mt-12 md:mt-20 max-w-full' data-tina-field={tinaField(data, 'image')}>
-            <div aria-hidden className='bg-linear-to-b absolute inset-0 z-10 from-transparent from-35% pointer-events-none' style={gradientStyle} />
-            <div className='inset-shadow-2xs ring-background dark:inset-shadow-white/20 bg-background relative mx-auto max-w-6xl overflow-hidden rounded-2xl border p-4 shadow-lg shadow-zinc-950/15 ring-1'>
-              <ImageBlock image={data.image} />
-            </div>
+        <div className='relative mt-12 max-w-full' data-tina-field={tinaField(data, 'image')}>
+          <div className='relative mx-auto max-w-3xl overflow-hidden rounded-lg border border-neutral-200 dark:border-neutral-800'>
+            <ImageBlock image={data.image} />
           </div>
-        </AnimatedGroup>
+        </div>
       )}
     </Section>
   );

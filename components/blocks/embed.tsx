@@ -44,21 +44,19 @@ export const Embed = ({ data }: { data: any }) => {
 
     return (
         <Section background={data.background!} data-tina-field={tinaField(data)}>
-            <div className="w-full max-w-4xl mx-auto">
-                <div
-                    className="relative w-full overflow-hidden rounded-lg border border-neutral-200 dark:border-neutral-800"
-                    style={{ paddingBottom: `${(height / 16) * 9}px` }}
-                >
-                    {embedUrl && (
-                        <iframe
-                            src={embedUrl}
-                            className="absolute inset-0 w-full h-full"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowFullScreen
-                            data-tina-field={tinaField(data, 'embedUrl')}
-                        />
-                    )}
-                </div>
+            <div
+                className="relative w-full overflow-hidden rounded-lg border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900/50 my-8"
+                style={{ paddingBottom: `${(height / 16) * 9}px` }}
+            >
+                {embedUrl && (
+                    <iframe
+                        src={embedUrl}
+                        className="absolute inset-0 w-full h-full"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                        data-tina-field={tinaField(data, 'embedUrl')}
+                    />
+                )}
             </div>
         </Section>
     );

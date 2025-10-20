@@ -7,38 +7,29 @@ import { sectionBlockSchemaField } from '../layout/section';
 import { Quote as QuoteIcon } from 'lucide-react';
 
 export const Quote = ({ data }: { data: any }) => {
-    return (
-        <Section background={data.background!} data-tina-field={tinaField(data)}>
-            <div className="w-full max-w-3xl mx-auto">
-                <blockquote className="relative">
-                    <div className="flex gap-4">
-                        <QuoteIcon className="w-8 h-8 text-neutral-300 dark:text-neutral-700 flex-shrink-0 mt-1" />
-                        <div>
-                            <p
-                                className="text-xl md:text-2xl font-medium text-neutral-800 dark:text-neutral-200 italic leading-relaxed"
-                                data-tina-field={tinaField(data, 'quote')}
-                            >
-                                {data.quote}
-                            </p>
-                            {data.author && (
-                                <footer className="mt-4">
-                                    <cite
-                                        className="text-base text-neutral-600 dark:text-neutral-400 not-italic font-medium"
-                                        data-tina-field={tinaField(data, 'author')}
-                                    >
-                                        — {data.author}
-                                    </cite>
-                                </footer>
-                            )}
-                        </div>
-                    </div>
-                </blockquote>
-            </div>
-        </Section>
-    );
-};
-
-export const quoteBlockSchema: Template = {
+  return (
+    <Section background={data.background!} data-tina-field={tinaField(data)}>
+      <blockquote className="relative border-l-2 border-neutral-300 dark:border-neutral-700 pl-6 my-8">
+        <p 
+          className="text-lg md:text-xl text-foreground italic leading-relaxed"
+          data-tina-field={tinaField(data, 'quote')}
+        >
+          {data.quote}
+        </p>
+        {data.author && (
+          <footer className="mt-3">
+            <cite 
+              className="text-sm text-neutral-600 dark:text-neutral-400 not-italic font-medium"
+              data-tina-field={tinaField(data, 'author')}
+            >
+              — {data.author}
+            </cite>
+          </footer>
+        )}
+      </blockquote>
+    </Section>
+  );
+};export const quoteBlockSchema: Template = {
     name: 'quote',
     label: 'Quote',
     ui: {

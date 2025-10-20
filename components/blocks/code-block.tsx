@@ -39,32 +39,30 @@ export const CodeBlock = ({ data }: { data: any }) => {
 
     return (
         <Section background={data.background!} data-tina-field={tinaField(data)}>
-            <div className="w-full max-w-4xl mx-auto">
-                {data.title && (
-                    <div className="bg-neutral-100 dark:bg-neutral-800 px-4 py-2 rounded-t-lg border border-b-0 border-neutral-200 dark:border-neutral-700">
-                        <p className="text-sm font-medium text-neutral-700 dark:text-neutral-300" data-tina-field={tinaField(data, 'title')}>
-                            {data.title}
-                        </p>
-                    </div>
-                )}
-                <div className="relative group">
-                    <button
-                        onClick={handleCopy}
-                        className="absolute right-3 top-3 p-2 rounded-md bg-neutral-800 dark:bg-neutral-700 hover:bg-neutral-700 dark:hover:bg-neutral-600 transition-colors opacity-0 group-hover:opacity-100"
-                        aria-label="Copy code"
-                    >
-                        {copied ? (
-                            <Check className="w-4 h-4 text-green-400" />
-                        ) : (
-                            <Copy className="w-4 h-4 text-neutral-300" />
-                        )}
-                    </button>
-                    <div
-                        className={`overflow-x-auto ${!data.title ? 'rounded-t-lg' : ''} rounded-b-lg border border-neutral-200 dark:border-neutral-700 [&>pre]:!my-0 [&>pre]:!p-4 ${data.showLineNumbers ? '[&>pre]:!pl-12' : ''}`}
-                        data-tina-field={tinaField(data, 'code')}
-                        dangerouslySetInnerHTML={{ __html: html }}
-                    />
+            {data.title && (
+                <div className="bg-neutral-50 dark:bg-neutral-900/50 px-4 py-2 rounded-t-lg border border-b-0 border-neutral-200 dark:border-neutral-800">
+                    <p className="text-xs font-mono text-neutral-600 dark:text-neutral-400" data-tina-field={tinaField(data, 'title')}>
+                        {data.title}
+                    </p>
                 </div>
+            )}
+            <div className="relative group">
+                <button
+                    onClick={handleCopy}
+                    className="absolute right-3 top-3 p-1.5 rounded-md bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors opacity-0 group-hover:opacity-100 z-10"
+                    aria-label="Copy code"
+                >
+                    {copied ? (
+                        <Check className="w-3.5 h-3.5 text-green-600 dark:text-green-400" />
+                    ) : (
+                        <Copy className="w-3.5 h-3.5 text-neutral-600 dark:text-neutral-400" />
+                    )}
+                </button>
+                <div
+                    className={`overflow-x-auto ${!data.title ? 'rounded-lg' : 'rounded-b-lg'} border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900/50 [&>pre]:!my-0 [&>pre]:!p-4 [&>pre]:!bg-transparent [&>pre]:text-sm`}
+                    data-tina-field={tinaField(data, 'code')}
+                    dangerouslySetInnerHTML={{ __html: html }}
+                />
             </div>
         </Section>
     );

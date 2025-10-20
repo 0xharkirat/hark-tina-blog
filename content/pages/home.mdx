@@ -1,29 +1,55 @@
----
-title: Tina Cloud Starter
-blocks:
-  - background: ""
-    text: Support for live editing and editorial workflow
-    url: "https://tina.io/editorial-workflow"
-    _template: callout
-  - background: bg-orange-50/80
-    headline: Welcome to the TinaCloud Starter
-    tagline: Build 10x Faster with TinaCMS
-    actions:
-      - label: Get Started
-        type: button
-        icon:
-          name: Tina
-          color: white
-        link: /about
-      - label: Read Blog
-        type: link
-        link: /posts
-    image:
-      src: ""
-      alt: Getting started with TinaCMS
-      videoUrl: "https://www.youtube.com/embed/j8egYW7Jpgk"
-    _template: hero
-  - background: bg-zinc-50
+------
+
+blocks:title: Tina Cloud Starter
+
+  - background: ""blocks:
+
+    headline: Welcome to My Tech Blog  - background: ""
+
+    tagline: Sharing insights on web development and technology    text: Support for live editing and editorial workflow
+
+    actions:    url: "https://tina.io/editorial-workflow"
+
+      - label: Read Posts    _template: callout
+
+        type: button  - background: bg-orange-50/80
+
+        icon:    headline: Welcome to the TinaCloud Starter
+
+          name: BiBookOpen    tagline: Build 10x Faster with TinaCMS
+
+          color: white    actions:
+
+        link: /posts      - label: Get Started
+
+      - label: About Me        type: button
+
+        type: link        icon:
+
+        link: /about          name: Tina
+
+    _template: hero          color: white
+
+  - background: bg-neutral-50        link: /about
+
+    body:      - label: Read Blog
+
+      type: root        type: link
+
+      children:        link: /posts
+
+        - type: p    image:
+
+          children:      src: ""
+
+            - type: text      alt: Getting started with TinaCMS
+
+              text: "This is a minimal tech blog built with TinaCMS and Next.js. Here you'll find articles about web development, programming, and technology."      videoUrl: "https://www.youtube.com/embed/j8egYW7Jpgk"
+
+    _template: content    _template: hero
+
+---  - background: bg-zinc-50
+
     title: TinaCMS by the numbers
     description: >-
       TinaCMS is an open-source content management system that allows developers
