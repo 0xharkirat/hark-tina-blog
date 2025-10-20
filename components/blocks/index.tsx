@@ -8,6 +8,11 @@ import { Video } from "./video";
 import { Callout } from "./callout";
 import { Stats } from "./stats";
 import { CallToAction } from "./call-to-action";
+import { CodeBlock } from "./code-block";
+import { Alert } from "./alert";
+import { Quote } from "./quote";
+import { ImageBlock } from "./image-block";
+import { Embed } from "./embed";
 
 export const Blocks = (props: Omit<Page, "id" | "_sys" | "_values">) => {
   if (!props.blocks) return null;
@@ -42,6 +47,16 @@ const Block = (block: PageBlocks) => {
       return <Testimonial data={block} />;
     case "PageBlocksCta":
       return <CallToAction data={block} />;
+    case "PageBlocksCodeBlock":
+      return <CodeBlock data={block} />;
+    case "PageBlocksAlert":
+      return <Alert data={block} />;
+    case "PageBlocksQuote":
+      return <Quote data={block} />;
+    case "PageBlocksImageBlock":
+      return <ImageBlock data={block} />;
+    case "PageBlocksEmbed":
+      return <Embed data={block} />;
     default:
       return null;
   }

@@ -1,5 +1,10 @@
 import React from 'react';
 import { videoBlockSchema } from '@/components/blocks/video';
+import { codeBlockSchema } from '@/components/blocks/code-block';
+import { alertBlockSchema } from '@/components/blocks/alert';
+import { quoteBlockSchema } from '@/components/blocks/quote';
+import { imageBlockSchema } from '@/components/blocks/image-block';
+import { embedBlockSchema } from '@/components/blocks/embed';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import type { Collection } from 'tinacms';
 
@@ -179,6 +184,11 @@ const Post: Collection = {
           },
         },
         videoBlockSchema,
+        codeBlockSchema,
+        alertBlockSchema,
+        quoteBlockSchema,
+        imageBlockSchema,
+        embedBlockSchema,
       ],
       isBody: true,
     },
