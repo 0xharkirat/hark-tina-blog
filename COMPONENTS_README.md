@@ -5,6 +5,7 @@
 All 5 essential components for your minimal tech blog have been created and registered with TinaCMS!
 
 ### 1. **Code Block Component** (`components/blocks/code-block.tsx`)
+
 - Syntax highlighting using Shiki (supports 20+ languages)
 - Copy to clipboard button
 - Optional title/filename
@@ -13,6 +14,7 @@ All 5 essential components for your minimal tech blog have been created and regi
 - **Languages supported:** JavaScript, TypeScript, Python, Java, C#, Go, Rust, PHP, Ruby, Bash, SQL, JSON, YAML, HTML, CSS, and more
 
 ### 2. **Alert Component** (`components/blocks/alert.tsx`)
+
 - Four variants: Info, Warning, Success, Tip
 - Color-coded with icons
 - Optional title
@@ -20,12 +22,14 @@ All 5 essential components for your minimal tech blog have been created and regi
 - **Use cases:** Important notes, warnings, tips, success messages
 
 ### 3. **Quote Component** (`components/blocks/quote.tsx`)
+
 - Clean blockquote design
 - Optional author attribution
 - Visual quote icon
 - **Use cases:** Highlighting important insights, testimonials, key takeaways
 
 ### 4. **Image Block Component** (`components/blocks/image-block.tsx`)
+
 - Responsive image display
 - Optional caption
 - Required alt text for accessibility
@@ -33,6 +37,7 @@ All 5 essential components for your minimal tech blog have been created and regi
 - **Use cases:** Screenshots, diagrams, hero images
 
 ### 5. **Embed Component** (`components/blocks/embed.tsx`)
+
 - Smart URL parsing for multiple platforms
 - **Supported platforms:**
   - YouTube
@@ -45,11 +50,13 @@ All 5 essential components for your minimal tech blog have been created and regi
 ## 📝 How to Use
 
 ### Starting the Development Server
+
 ```bash
 pnpm dev
 ```
 
 This will start:
+
 - Website: http://localhost:3000
 - TinaCMS Admin: http://localhost:3000/admin
 - GraphQL Playground: http://localhost:4001/altair/
@@ -73,6 +80,7 @@ All components are automatically available in your blog posts and pages through 
 ## 📁 Files Modified/Created
 
 ### New Component Files:
+
 - `components/blocks/code-block.tsx`
 - `components/blocks/alert.tsx`
 - `components/blocks/quote.tsx`
@@ -80,6 +88,7 @@ All components are automatically available in your blog posts and pages through 
 - `components/blocks/embed.tsx`
 
 ### Updated Configuration Files:
+
 - `components/blocks/index.tsx` - Added new component imports and routing
 - `tina/collection/page.ts` - Registered blocks for pages
 - `tina/collection/post.tsx` - Registered blocks for blog posts
@@ -87,6 +96,7 @@ All components are automatically available in your blog posts and pages through 
 ## 🎨 Styling
 
 All components use:
+
 - Tailwind CSS for styling
 - Dark mode support
 - Responsive design
@@ -96,19 +106,23 @@ All components use:
 ## 🔧 Technical Details
 
 ### TinaCMS Integration
+
 Each component includes:
+
 - **Template schema** with field definitions
 - **UI configuration** with preview images and default values
 - **Type safety** through TinaCMS generated types
 - **Visual editing** support with `tinaField` markers
 
 ### Code Block Features
+
 - Uses Shiki for syntax highlighting
 - GitHub Light/Dark themes
 - Async HTML generation
 - Fallback for unsupported languages
 
 ### Embed Component Features
+
 - Automatic URL parsing with regex
 - Platform detection
 - Responsive aspect ratio
