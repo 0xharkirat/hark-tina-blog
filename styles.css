@@ -115,6 +115,7 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -122,34 +123,39 @@
     line-height: 1.6;
     letter-spacing: -0.011em;
   }
-  
-  h1, h2, h3, h4, h5, h6 {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-weight: 600;
     letter-spacing: -0.025em;
     line-height: 1.2;
   }
-  
+
   h1 {
     font-size: 2.5rem;
     font-weight: 700;
   }
-  
+
   h2 {
     font-size: 1.875rem;
   }
-  
+
   h3 {
     font-size: 1.5rem;
   }
-  
+
   p {
     color: oklch(0.4 0 0);
   }
-  
+
   .dark p {
     color: oklch(0.7 0 0);
   }
-  
+
   a {
     @apply text-foreground underline decoration-neutral-300 dark:decoration-neutral-700 underline-offset-4 transition-colors hover:decoration-neutral-600 dark:hover:decoration-neutral-400;
   }

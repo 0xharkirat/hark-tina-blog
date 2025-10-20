@@ -46,7 +46,7 @@ export const Hero = ({ data }: { data: PageBlocksHero }) => {
     <Section background={data.background!}>
       <div className='mx-auto max-w-3xl'>
         {data.headline && (
-          <h1 
+          <h1
             className='text-4xl md:text-5xl font-bold mb-4 text-foreground'
             data-tina-field={tinaField(data, 'headline')}
           >
@@ -54,7 +54,7 @@ export const Hero = ({ data }: { data: PageBlocksHero }) => {
           </h1>
         )}
         {data.tagline && (
-          <p 
+          <p
             className='text-lg md:text-xl text-neutral-600 dark:text-neutral-400 mb-8'
             data-tina-field={tinaField(data, 'tagline')}
           >
@@ -71,8 +71,8 @@ export const Hero = ({ data }: { data: PageBlocksHero }) => {
                 data-tina-field={tinaField(action)}
                 className={`
                   inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors no-underline
-                  ${action!.type === 'button' 
-                    ? 'bg-foreground text-background hover:bg-neutral-800 dark:hover:bg-neutral-200' 
+                  ${action!.type === 'button'
+                    ? 'bg-foreground text-background hover:bg-neutral-800 dark:hover:bg-neutral-200'
                     : 'text-foreground hover:text-neutral-600 dark:hover:text-neutral-400'
                   }
                 `}
@@ -157,9 +157,9 @@ export const heroBlockSchema: Template = {
           label: 'Action Label',
           type: 'button',
           icon: {
-              name: "Tina",
-              color: "white",
-              style: "float",
+            name: "Tina",
+            color: "white",
+            style: "float",
           },
           link: '/',
         },

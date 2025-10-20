@@ -1,26 +1,49 @@
-------
+---------
 
-blocks:title: Tina Cloud Starter
+blocks:
 
-  - background: ""blocks:
+  - background: ""blocks:title: Tina Cloud Starter
 
-    headline: Welcome to My Tech Blog  - background: ""
+    headline: Harkirat Singh
 
-    tagline: Sharing insights on web development and technology    text: Support for live editing and editorial workflow
+    tagline: Software Engineer building mobile, web, and backend solutions  - background: ""blocks:
 
-    actions:    url: "https://tina.io/editorial-workflow"
+    actions:
 
-      - label: Read Posts    _template: callout
+      - label: Read My Blog    headline: Welcome to My Tech Blog  - background: ""
 
-        type: button  - background: bg-orange-50/80
+        type: button
 
-        icon:    headline: Welcome to the TinaCloud Starter
+        link: /posts    tagline: Sharing insights on web development and technology    text: Support for live editing and editorial workflow
 
-          name: BiBookOpen    tagline: Build 10x Faster with TinaCMS
+      - label: About Me
 
-          color: white    actions:
+        type: link    actions:    url: "https://tina.io/editorial-workflow"
 
-        link: /posts      - label: Get Started
+        link: /about
+
+    _template: hero      - label: Read Posts    _template: callout
+
+  - background: ""
+
+    body:        type: button  - background: bg-orange-50/80
+
+      type: root
+
+      children:        icon:    headline: Welcome to the TinaCloud Starter
+
+        - type: p
+
+          children:          name: BiBookOpen    tagline: Build 10x Faster with TinaCMS
+
+            - type: text
+
+              text: "I'm a Software Engineer at SSW, specializing in mobile app development with Flutter and Firebase, backend development with C# .NET, and web applications using Angular."          color: white    actions:
+
+    _template: content
+
+---        link: /posts      - label: Get Started
+
 
       - label: About Me        type: button
 
