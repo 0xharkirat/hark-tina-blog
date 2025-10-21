@@ -27,6 +27,9 @@ const lato = Lato({
 export const metadata: Metadata = {
   title: "Tales of Hark",
   description: "Tales of Hark - Personal Blog",
+  icons: {
+    icon: '/icon.svg',
+  },
 };
 
 export default function RootLayout({
