@@ -1,6 +1,6 @@
 ---
 blocks:
-  - background: ""
+  - background: bg-gradient-to-br from-blue-50 to-indigo-50
     headline: Harkirat Singh
     tagline: Software Engineer building mobile, web, and backend solutions
     actions:
@@ -11,13 +11,21 @@ blocks:
         type: link
         link: /about
     _template: hero
-  - background: ""
+  - background: bg-white
     body:
       type: root
       children:
+        - type: h2
+          children:
+            - type: text
+              text: "Welcome to Tales of Hark"
         - type: p
           children:
             - type: text
-              text: "I'm a Software Engineer at SSW, specializing in mobile app development with Flutter and Firebase, backend development with C# .NET, and web applications using Angular."
+              text: "I'm a Software Engineer at SSW, specializing in mobile app development with Flutter and Firebase, backend development with C# .NET, and web applications using Angular. This is where I share my journey, insights, and lessons learned in software development."
     _template: content
+  - background: bg-neutral-50
+    quote: "The only way to do great work is to love what you do."
+    author: "Steve Jobs"
+    _template: quote
 ---
